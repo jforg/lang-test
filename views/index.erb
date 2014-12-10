@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Content-Language Test App</title>
+<style>
+body {
+  margin: 0;
+  padding: 0 8px;
+  font-size: 150%;
+  text-align: center;
+}
+h1 {
+  margin: .5em 0 0;
+  font-size: 200%;
+}
+q {
+  font: italic 100%/1.5 serif;
+}
+.to_home {
+  text-decoration: none;
+}
+:lang(ja) {
+  quotes: '\300C' '\300D';
+}
+:lang(en) {
+  quotes: '\201C' '\201D';
+}
+:lang(fr) {
+  quotes: '\00AB' '\00BB';
+}
+:lang(de) {
+  quotes: '\201E' '\201C';
+}
+q:before {
+  content: open-quote;
+}
+q:after {
+  content: close-quote;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 300%;
+  }
+}
+</style>
+<h1><%= @hello %></h1>
+<p><q>Lorem ipsum dolor sit amet...</q></p>
+<p>
+  <a href="/ja">ja</a> |
+  <a href="/en">en</a> |
+  <a href="/fr">fr</a> |
+  <a href="/de">de</a> |
+  <a href="/" class="to_home">(´･ω･`)</a> 
+</p>
